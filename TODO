@@ -1,0 +1,21 @@
+
+Roadmap:
+
+ *** SimpleBusiness 1.x
+     ==================
+
+(1) data abstraction improvements
+(2) setup page
+(3) projection and selection support for IObjectSet
+(4) export to PDF
+(5) mailing facility -- when there is new issued invoice, send it to the customer's mailbox
+(6) auto-invoice facility -- scheduled invoices -- for examle when you
+provide a service and you want to get the same money each month...
+
+ *** SimpleBusiness 2.x
+     ==================
+
+(1) Digital signature (!!!)
+(2) Communication with bank to check if there's no unpaid invoice
+(3) DEC/EDI (??)
+

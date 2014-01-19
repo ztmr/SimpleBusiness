@@ -1,0 +1,79 @@
+
+ABSTRACT:
+========
+
+SimpleBusiness will be an application for small business management.
+This application will provide SimpleBusiness service to everybody who wants
+to use eInvoicement, especially for freelancers.
+This service is primarily targetted for Czech Republic.
+
+Note: auto-invoicing..
+
+CORE FUNCTIONALITY:
+==================
+
+  (0) LOGIN -- using supplier company's credentials;
+
+  (1) INVOICES -- create, list (modify, send, delete, print, ..):
+    (a) outgoing -- regular invoices;
+    (b) incoming -- uploaded scans and/or electronic bills/invoices
+                    (simple autoincremented records with a multi-file attachements);
+
+  (2) CUSTOMERS -- create, list (modify, delete, ..);
+
+  (3) BANK ACCOUNTS -- create, list (modify, delete, ..)
+                       + account incoming/outgoing payments (deposit/withdraw)
+                         reporting driver (AIOR-D) selection;
+
+  (4) MY COMPANY -- modify (addresses, signature, certificates, emails, ..);
+
+  (5) REPORTS -- basic money flows (incoming, outgoing), paired and
+                 unpaired invoices (incoming, outgoing), complete
+                 report of the specified business year (can be sent
+                 to your finance manager as data source for government), ...
+
+Note: What about more user roles:
+----
+  (a) SYS$MANAGER -- administration mode: account management, eArchive browser, reports, ...
+  (b) SUPL$DIRCTR -- suplier director, manager, ... -- full RW access;
+  (c) SUPL$REPORT -- full RO access;
+  (d) SUPL$CUSTMR -- filtered (by customer) RO access;
+
+
+(A) REGULAR INVOICE
+    ===============
+
+  Contains:
+    - autoincrementing InvoiceId
+    - supplier's informations
+    - customer's informations
+    - payment method
+    - date of issue
+    - date of tax application
+    - date of purge
+    - list of items with count and unit price (in selected valutes) included
+    - total sum (in selected valutes)
+    - is / is_not a VAT payer
+    - handwritten and/or electronic signature
+
+  Create:
+    - select customer
+    - select payment method (bank transfer / cash)
+    - check pre-computed date of issue, date of tax application and date of purge
+      (the method of precomputing is specified in MY COMPANY setup)
+    - select one or more valutes (the default is CZK) and decide between automatic
+      exchange detection and exchange inserted by hand (this could be pre-selected
+      in MY COMPANY setup)
+    - add one or more items (code, description, count, unit price in a default valutes)
+    - decide if you want an invoice to be sent to a customer's eMail just after issuing it
+      (could be pre-selected in MY COMPANY setup)
+    - ISSUE
+
+  Modify:
+    The same as Create section but the optional eMail contains "The invoice was re-issued"
+    instead of "The invoice has been issued" and ISSUE button is renamed to RE-ISSUE.
+
+(B) CUSTOMERS
+    =========
+
+  Contains
